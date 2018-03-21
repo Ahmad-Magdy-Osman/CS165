@@ -1,0 +1,48 @@
+1-Use grep and error.log as your source to find out how many times module php_curl.dll could not be found.
+	Command: grep -o "php_curl.dll" error.log | wc -l
+	Result: 12
+
+2-How many Fatal Errors were logged on Sunday, February 14 of 2016 to the file error.log?
+	Command: grep -P "\[Sun Feb 14.*2016.*Fatal error" error.log | wc -l
+	Result: 18
+
+3-How many users in the /etc/passwd file have their shell set to /usr/sbin/nologin?
+	Command: cat /etc/passwd | grep "/usr/sbin/nologin" | wc -l
+	Result: 17
+
+4-Use netstat and grep to find out if port 22 (ssh) is open on your machine.
+	Command: netstat -tulpn | grep ":22"
+	Result: port 22 is open
+	*If you want to know how many services are attached to that port, the following command can be used
+	Command: netstat -tulpn | grep ":22" | wc -l
+	Result: 2
+
+5-Open the manual page of the find command and use grep to display all lines that contain word "permission" along with a line above and below it.
+	Command: man find | grep -C 1 "permission"
+	Result: displayed within the terminal
+
+6-How many file on your machine have permissions set to 777? 
+	Command: find / -perm 777 2> /dev/null | wc -l
+	Result: 94506
+
+7-Find all the files you can read and write, your group can read only, and everyone else doesn't have access to.
+	Command: find / -perm 640 2> /dev/null
+	Result: displayed within the terminal
+	*If you want to know how many files with with permissions, the following command should work:
+	Command: find / -perm 640 2> /dev/null | wc -l
+	Result: 76
+
+8-Find all the files larger than 100 MB.
+	Command: find / -size +100M 2> /dev/null
+	Result: displayed within the terminal
+	*If you want to to display how many files are larger than 100 MB.
+	Command: find / -size +100M 2> /dev/null | wc -l
+	Result: 5
+
+9-Create a new user. How many files have that user as an owner?	
+	Command: find / -user test_username 2> /dev/null | wc -l
+	Result: 5
+
+10-Find the file error.log in your home directory and subdirectories and delete it. You must use a single command (line). Look up exec option of the find command. 
+	Command: find ~ -name error.log 2> /dev/null -exec rm -f {} \;
+	Result: file is deleted

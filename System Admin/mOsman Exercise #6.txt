@@ -1,0 +1,40 @@
+1-Use apt utility to see how many packages on your machine can be upgraded. What is the reported number? What command will actually download and install updates?
+	Command: sudo apt update
+	Result: 426 packages can be upgraded.
+	Command: "sudo apt upgrade" will actually download and install updates
+	Note: I used sudo as I needed superuser's permissions to execute apt commands.
+
+2-Run the which command to find out which version of vim you are using.
+	Command: which vim
+	Result: /usr/bin/vim
+
+3-Run a command or a pipe to list all the directories in your $PATH in alphabetical order, one directory per line.
+	Command: echo "$PATH" | tr ':' '\n' | sort --dictionary-order
+
+4-Use cURL (curl) to download a file http://www.pigdog.org/the_vault/pig/fnord.txt to your home directory and save it as pig_fnord.txt.
+	Command: curl -o pig_fnord.txt http://www.pigdog.org/the_vault/pig/fnord.txt
+
+5-Use cURL and the DICT protocol to translate 'university' from English to Welsh. Hint: use show:db command to see the name of the English-Welsh dictionary.
+	Command: curl dict://dict.org/d:university:fd-eng-wel
+
+6-Use the scp command to copy te previously downloaded file pig_fnord.txt from the guest (Linux) to the host (Mac).
+	Command: scp 192.168.36.128:pig_fnord.txt .
+	Explaination: this command runs on the Host OS to copy the file from the Guest OS. The fuke is copied to the host's terminal current directory. Notice that both my host and guest OSs have the same username, therfore I did not need specify the username while executing the scp command.
+
+7-Use telnet to open towel.blinkenlights.nl. What is the content provided by this service?
+	Command: telnet towel.blinkenlights.nl
+	This serivce provides Star Wars related content
+
+8- Use telnet to open bbs.iscabbs.com (hosted by: Iowa Student Computing Alumni BBS, Iowa, USA). How many users are online using that service now?
+	Commands and steps:
+		1-telnet bbs.iscabbs.com
+		2-Login with "Guest" as username
+		3-Typing 'w' on the keyboard will give you the number of users
+	Result: There are 34 users
+
+9-Connect to your guest machine via ssh. Run any command in a remote terminal.
+	Command: ssh 192.168.36.128
+	Screenshot attached with several commands executed on the remote terminal. Please notice that both Host and Guest have the same username.
+
+10-Follow the tutorial(s) at DigitalOcean to configure your SSH server to log in with keys, rather than name and password.
+	Screenshot attached.

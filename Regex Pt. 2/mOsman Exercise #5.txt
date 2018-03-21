@@ -1,0 +1,31 @@
+1. Username (4-10 alphanumeric characters, starting with a letter):
+	^[a-z]\w{3,9}$
+
+2.Password (8-15 printable alphanumeric characters):
+	^[ -~]{8,15}$
+
+3.Email address (username and domain may contain alphanumeric characters, underscore, and a dot, the username must start with a letter):
+	^[a-z](\w|\d|_|\.)+@(\w|\d|_|\.)+\.(\w|\d|_|\.)+$
+
+4. Phone number (10-11 digits, groups possibly separated with dashes, spaces, or parenthesis). Must write a single rule:
+	^(\d\-)?\-?\(?\d{3}\)?\s?\-?\d{3}\-?\s?\d{4,5}$
+Notice: the last token, \d{4,5} considers an additional matching case which is eleven numbers not seperate at all e.g. 12345678901. This was not among the matching cases but logically is so I made sure it is considered.
+
+5.Street address (formatted as follows: a number (1-9999), followed by an optional direction (N, E, S, or W), followed by a name (starting with a capital letter or a digit), followed by a type (Ave, Blvd, Dr, Hwy, or St)):
+	^\d{1,4}\s((N|E|S|W)\s)?([A-Z]|[1-9])[a-z]+\s(Ave|Blvd|Dr|Hwy|St)+$
+
+6.Match all valid (complete) records in the attached zoo roster (animals.txt). A complete record contains all of the following fields: ID (4 digits), name (1 or 2 words), age (1-100), species (1-4 words), location:
+	^\d{4}\s+\w+\s\w*\s+(100|[1-9]|[1-9][0-9])\s+([A-z\-]+\s?[A-z\-]+\s?[A-z\-]+\s?[A-z\-]+)\s+[0-9]+$
+
+7.Match all valid (complete) records of animals who are 90 or older in the attached zoo roster (animals.txt):
+	^\d{4}\s+\w+\s\w*\s+(9[0-9]|100)\s+([A-z\-]+\s?[A-z\-]+\s?[A-z\-]+\s?[A-z\-]+)\s+[0-9]+$
+Notice: "valid" recorsd require me make sure that all conditions from question 6 are satisfied. That is why I am using question 6 regular expression as my general regex and editing it to satisfy the requirements of this question(and the following ones).
+
+8.Match all valid (complete) records of Beavers who are 5 or younger in the attached zoo roster (animals.txt):
+	^\d{4}\s+\w+\s\w*\s+([0-5])\s+(Beaver)\s+[0-9]+$
+
+9.Match all valid (complete) records of Penguins (Humboldt and Macaroni) whose location starts with 4 in the attached zoo roster (animals.txt:
+	^\d{4}\s+\w+\s\w*\s+(100|[1-9]|[1-9][0-9])\s+\w+\s[Pengiun]+\s+[4][0-9]*$
+
+10.Match all valid (complete) records of Armadillos (but not Pink Fairy Armadillo) who are 30 or younger in the attached zoo roster (animals.txt):
+	^\d{4}\s+\w+\s\w*\s+(30|2[0-9]|1[0-9]|[1-9])\s+(Armadillo)\s+[0-9]+$

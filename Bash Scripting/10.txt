@@ -1,0 +1,5 @@
+Use tar utility with gzip option to compress all the .sh files into an archive exercise3.tar.gz.
+
+Command: tar -czvf exercise3.tar.gz *.sh *.txt
+
+Note: The task asks for .sh files but I aded the .txt file to include this command explanation.

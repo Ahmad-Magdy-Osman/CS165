@@ -1,0 +1,45 @@
+Ahmad M. Osman
+
+1-What process uses the most memory (RSS) on your machine? Use --sort option of the ps command.
+	Command: ps -efly --sort=rss
+	Result: PID number 2927, which is Google Chrome, is the process that uses most RSS where RSS = 512584
+
+2-How many directories and files (including hidden) are there in your home directory?
+	Command: ls -a | wc -l
+	Result: 75 - directories and files (including hidden)
+
+3-What is your machine's main interface (not lo) IP (inet) address? Use ifconfig command.
+	Command: ifconfig
+	Result: 10.25.40.194
+
+4-Pick your favorite site. What is its IP address? Use ping command.
+	Command: ping -c 1 stackexchange.com 
+	Result: 151.101.129.69
+
+5-How many addresses are there for yahoo.com? Use nslookup command.
+	Command: echo `nslookup yahoo.com | grep "Address" | wc -l` -1 | bc
+	Result: 3
+
+Note: this finds the the word "Address" which is associated with the IP address in the result and counts it. I subtracted one because the local machine address iss always counted for.
+
+6-How many users are there on your system? The answer must be a number.
+	Command: echo `cat /etc/passwd | grep "/bin/bash" | wc -l` -1 | bc
+	Result: 1
+
+Note: This searches for /bin/bash keyword which is associated with human-made users and root user, and I subtract '1' to make sure that root does not count.
+
+7-Sort the words in /usr/share/dict/words and save the result to the words_sorted.txt in your home directory.
+	Command: cat /usr/share/dict/words | sort > ~/words_sorted.txt
+	Result: saved words_sorted.txt in my home directory
+
+8-How many misspelled words are there in fnord.txt?
+	Command: tr 'A-Z' 'a-z' <fnord.txt | tr -cs 'a-z' '\n' | sort | uniq | comm -23 - /usr/share/dict/words | wc -l
+	Result: 199
+
+9-Find a file named american-english on your machine and redirect all errors to /dev/null
+	Command: find / -name american-english 2> /dev/null
+	Result: /usr/share/dict/american-english
+
+10-How many files on your machine your don't have access to (permission denied)? You can use an intermediate file to store some results and run a couple of commands
+	Command: echo `find / -name file_name 2> permission_denied.txt` | cat permission_denied.txt | wc -l
+	Result: 1767

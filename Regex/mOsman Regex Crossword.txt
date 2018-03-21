@@ -1,0 +1,15 @@
+#Ahmad M. Osman
+
+Cities #1: LIMA
+Cities #2: LONDINIUM
+Cities #3: NEW YORK
+Cities #4: KUALA LUMPUR
+Cities #5:  COPENHAGEN 
+
+Hamlet #1: REVENGE HIS FOUL AND MOST UNNATURAL MURDER
+Hamlet #2: TO BE, OR NOT TO BE, THAT IS THE QUESTION 
+Hamlet #3: HE POISONS HIM I' THE GARDEN
+Hamlet #4: TOO MUCH OF WATER HAST THOU, POOR OPHELIA!
+Hamlet #5: ALAS, POOR YORICK! ... A FELLOW OF INFINITE JEST
+
+#Please notice that spaces can be before, after or in between the words.
